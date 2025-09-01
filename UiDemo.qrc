@@ -1,0 +1,23 @@
+<RCC>
+    <qresource prefix="/UiDemo">
+        <file>widgetTitle.ui</file>
+        <file>UiDemo.ui</file>
+        <file>img/appStartImg.png</file>
+        <file>img/favicon16_16.ico</file>
+        <file>img/favicon32_32.ico</file>
+        <file>img/favicon48_48.ico</file>
+        <file>img/favicon64_64.ico</file>
+        <file>img/favicon128_128.ico</file>
+        <file>img/favicon256_256.ico</file>
+        <file>img/favicon512_512.ico</file>
+        <file>img/levelBig.png</file>
+        <file>img/levelsmall.png</file>
+        <file>img/vecticalBig.png</file>
+        <file>img/vecticalSmall.png</file>
+        <file>img/icon_question.png</file>
+        <file>img/icon_right.png</file>
+        <file>img/icon_wrong.png</file>
+        <file>img/32.png</file>
+        <file>img/33.png</file>
+    </qresource>
+</RCC>
