@@ -14,9 +14,14 @@ public:
 Q_SIGNALS:
 	void addSeriesSignals(QString lineName, double* xArray, double* yArray, int length);
 	void saveSelectData(QString fileName);
+	void exportByFilePathSingle(QString dir);
+	void importByFilePathSingle(QString dir);
+
 public slots:
 	void addSeriesVec(QString lineName, double* xArray, double* yArray, int length);
 	void saveSelectDataByFileName(QString fileName);
+	void exportByFilePath(QString dir);
+	void importByFilePath(QString dir);
 
 public:
 	void initData();
@@ -28,6 +33,7 @@ public:
 	void removeAllSeries();
 	void updateXRange(int nReduce, double range);
 	void updateYRange(int nReduce, double range);
+	void renameByLine(int nIndex, QString lineName);
 	QString getSeriesName();
 	
 	void isVisbleLine(int nIndex, bool isHidden);

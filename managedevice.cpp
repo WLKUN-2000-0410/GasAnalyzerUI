@@ -4,6 +4,8 @@
 #include "modeling.h"
 #include "custommessagebox.h"
 #include "scantestdlg.h"
+#include "renamebylinedlg.h"
+#include "correctiondatadlg.h"
 
 
 ManageDevice::ManageDevice(QWidget *parent)
@@ -78,7 +80,10 @@ void ManageDevice::initView()
 	QMenu* menuFile = new QMenu(this);
 	actionFileOpen = menuFile->addAction(QString::fromLocal8Bit("打开"));
 	actionFileSave = menuFile->addAction(QString::fromLocal8Bit("保存"));
-	actionFileImport = menuFile->addAction(QString::fromLocal8Bit("导出"));
+	actionFileRename = menuFile->addAction(QString::fromLocal8Bit("重命名曲线"));
+	actionDeleteLine = menuFile->addAction(u8"删除曲线");
+	actionImport = menuFile->addAction(u8"导入");
+	actionExport = menuFile->addAction(u8"导出");
 	ui.toolButton_file->setPopupMode(QToolButton::InstantPopup);
 	ui.toolButton_file->setMenu(menuFile);
 
@@ -128,9 +133,20 @@ void ManageDevice::initView()
 void ManageDevice::initClick()
 {
 	connect(actionFileOpen	, &QAction::triggered, this, &ManageDevice::openFileDlg);
-	connect(actionFileSave	, &QAction::triggered, this, &ManageDevice::openFileDlg);
-	connect(actionFileImport, &QAction::triggered, this, &ManageDevice::openFileDlg);
-	connect(actionJiao1		, &QAction::triggered, this, &ManageDevice::openFileDlg);
+	connect(actionFileSave	, &QAction::triggered, this, &ManageDevice::saveLineByFile);
+	connect(actionFileRename, &QAction::triggered, this, &ManageDevice::renameByLine);
+	connect(actionDeleteLine, &QAction::triggered, this, &ManageDevice::deleteChooseLine);
+	connect(actionImport, &QAction::triggered, this, &ManageDevice::importByFilePath);
+	connect(actionExport, &QAction::triggered, this, &ManageDevice::exportByFilePath);
+	connect(actionJiao1, &QAction::triggered, this, [this]() {
+		CorrectionDataDlg * correction = new CorrectionDataDlg(this);
+		ScanTestDlg* scanTestDlg = qobject_cast<ScanTestDlg*>(ui.stackedWidget->widget(0));
+		if (scanTestDlg->getAllDataList().size()>0)
+		{
+			correction->setLineObjList(scanTestDlg->getAllDataList());
+			correction->show();
+		}
+	});
 	connect(actionJiao2		, &QAction::triggered, this, &ManageDevice::openFileDlg);
 	connect(actionJiao3, &QAction::triggered, this, [this]() {
 		
@@ -161,6 +177,7 @@ void ManageDevice::initClick()
 		isMaximized() ? showNormal() : showMaximized();
 	});
 	connect(ui.pushButtonWidgetClose, &QPushButton::clicked, this, &ManageDevice::close);
+	connect(this,&ManageDevice::setShowMessageString,this,&ManageDevice::showMessageStringTitle);
 }
 
 void ManageDevice::openFileDlg()
@@ -201,8 +218,9 @@ void ManageDevice::openFileDlg()
 						}
 					}
 				}
-				ShowLine* showLine = qobject_cast<ShowLine*>(ui.stackedWidget->widget(0));
-				showLine->addSeries(fileNameA + QString::number(i), xVec, yVec);
+				ScanTestDlg* scanTestDlg = qobject_cast<ScanTestDlg*>(ui.stackedWidget->widget(0));
+				//showLine->addSeries(fileNameA + QString::number(i), xVec, yVec);
+				emit scanTestDlg->addSeriesSignals(fileNameA + QString::number(i), xVec, yVec);
 				xVec.clear();
 				yVec.clear();
 			}
@@ -220,4 +238,50 @@ void ManageDevice::showModeling() {
 	ui.stackedWidget->setCurrentIndex(1);
 	Modeling* modeling = qobject_cast<Modeling*>(ui.stackedWidget->widget(1));
 	
+}
+
+void ManageDevice::saveLineByFile()
+{
+	QString fileName = QFileDialog::getSaveFileName(
+		this,
+		QString::fromLocal8Bit("选择文件"),
+		"",
+		QString::fromLocal8Bit("文本文件 (*.txt);")
+	);
+
+	ShowLine* showLine = qobject_cast<ShowLine*>(ui.stackedWidget->widget(0));
+	ScanTestDlg* scanTestDlg = qobject_cast<ScanTestDlg*>(ui.stackedWidget->widget(0));
+	emit scanTestDlg->saveLineByFine(fileName);
+}
+
+void ManageDevice::renameByLine()
+{
+	ScanTestDlg* scanTestDlg = qobject_cast<ScanTestDlg*>(ui.stackedWidget->widget(0));
+	RenameByLineDlg * renameByLineDlg = new RenameByLineDlg(scanTestDlg);
+	renameByLineDlg->show();
+	renameByLineDlg->setLineNameList(scanTestDlg->getLineNameList());
+}
+
+void ManageDevice::deleteChooseLine()
+{
+	ScanTestDlg* scanTestDlg = qobject_cast<ScanTestDlg*>(ui.stackedWidget->widget(0));
+	emit scanTestDlg->deleteChoseLine();
+}
+
+void ManageDevice::importByFilePath()
+{
+	QString dir = QFileDialog::getExistingDirectory(nullptr, u8"选择文件夹");
+	ScanTestDlg* scanTestDlg = qobject_cast<ScanTestDlg*>(ui.stackedWidget->widget(0));
+	emit scanTestDlg->importByFilePath(dir);
+}
+
+void ManageDevice::exportByFilePath()
+{
+	QString dir = QFileDialog::getExistingDirectory(nullptr, u8"选择文件夹");
+	ScanTestDlg* scanTestDlg = qobject_cast<ScanTestDlg*>(ui.stackedWidget->widget(0));
+	emit scanTestDlg->exportByFilePath(dir);
+}
+
+void ManageDevice::showMessageStringTitle(QString strMeg)
+{
 }

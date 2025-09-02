@@ -4,7 +4,12 @@
 enum  BussiNumEnum
 {
 	BUSS_MODELING = 1,
-	BUSS_VERIFY = 2
+	BUSS_VERIFY = 2,
+	BUSS_START_SCAN = 3,
+	BUSS_SINGLE_SCAN = 4,
+	BUSS_STOP = 5,
+	BUSS_SET_LASER_PWD = 6,
+	BUSS_CORRECTION_DATA = 7
 };
 class GlobalShare
 {

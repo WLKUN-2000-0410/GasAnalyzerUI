@@ -62,12 +62,14 @@ void Modeling::initClick()
 		float fIteamPa = ui.lineEditItemPa->text().toDouble();
 		std::string strModel = ui.comboBoxModeList->currentText().toUtf8().constData();
 		std::string strSample = ui.comboBoxTestSample->currentText().toUtf8().constData();
-
+		std::vector<std::string> vecSeriesNames = { "Series1", "Series2", "Series3" };//new
+		std::vector<double> vecConOrPre = { 10,20,30 };//new
+		std::string modelName = strModel;//new
 		CSingletonShared::GetInstance().setFuntionCallbackMap(BussiNumEnum::BUSS_MODELING, [this]() {
 			
 		});
 		CSingletonShared::GetInstance().scanModeling(BussiNumEnum::BUSS_MODELING, nTestMode, isSubBaseline, isSmooth, fPeakPosition
-			, strTestName, fCentration, fMol, fTotalPa, fIteamPa);
+			, strTestName, fCentration, fMol, fTotalPa, fIteamPa, modelName, vecSeriesNames,vecConOrPre);
 	});
 	connect(this, &Modeling::showSmoothDialogSignale,this,&Modeling::showSmoothDialog);
 	connect(ui.pushButtonVerify, &QPushButton::clicked, this, [this]() {
@@ -86,9 +88,11 @@ void Modeling::initClick()
 		CSingletonShared::GetInstance().setFuntionCallbackMap(BussiNumEnum::BUSS_VERIFY, [this]() {
 			int i = 0;
 		});
-		CSingletonShared::GetInstance().scanVerify(BussiNumEnum::BUSS_VERIFY, nTestMode,isSubBaseline,isSmooth,fPeakPosition
-			,strTestName,fCentration,fMol,fTotalPa,fIteamPa);
-	
+		/*CSingletonShared::GetInstance().scanVerify(BussiNumEnum::BUSS_VERIFY, nTestMode,isSubBaseline,isSmooth,fPeakPosition
+			,strTestName,fCentration,fMol,fTotalPa,fIteamPa)*/;
+
+		CSingletonShared::GetInstance().scanVerify(BussiNumEnum::BUSS_VERIFY, strModel, strSample, isSubBaseline ,fTotalPa);
+		
 	});
 	connect(ui.radioButtonPressure, &QPushButton::clicked, this, [this]() {
 		nTestMode = 0;
@@ -100,10 +104,10 @@ void Modeling::initClick()
 		bool isChecked = ui.checkBoxSmooth->isChecked();
 		if (isChecked)
 		{
-			
 			emit showSmoothDialogSignale();
 		}
 	});
+	
 	connect(ui.comboBoxPeakPosition, &QComboBox::currentTextChanged, [this] (QString test){
 		qDebug() << test;
 	});

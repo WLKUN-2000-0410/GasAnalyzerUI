@@ -38,7 +38,7 @@ int main(int argc, char *argv[])
 	a.setFont(font);
 
 
-	UiDemo w;
+	ManageDevice w;
 	w.setWindowIcon(QIcon(":/UiDemo/img/favicon64_64.ico")); // È«¾ÖÍ¼±ê
 	w.show();
 

@@ -72,6 +72,97 @@ void ShowLine::saveSelectDataByFileName(QString fileName)
 
 }
 
+void ShowLine::exportByFilePath(QString dir)
+{
+	QList<int> selectIndex = getSelected();
+	QCustomPlot* customPloat = qobject_cast<QCustomPlot*>(ui.widget);
+	QStringList fileCont;
+	QString lineC;
+	QString linedata = "";
+	for (size_t i = 0; i < lineNames.size(); i++)
+	{
+		int nDataCount = customPloat->graph(i)->dataCount();
+		linedata = "";
+		lineC = "";
+		for (size_t j = 0; j < nDataCount; j++)
+		{
+			linedata = "";
+			double key = customPloat->graph(i)->data()->at(j)->key;
+			linedata.append(QString::number(key));
+			linedata.append("\t");
+			double val = customPloat->graph(i)->data()->at(j)->value;
+			linedata.append(QString::number(val));
+			lineC.append(linedata).append("\n");
+		}
+		QFile file(dir+"/"+lineNames.at(i)+".txt");
+		if (file.open(QIODevice::WriteOnly)) {  // 文本模式读取
+			file.write(lineC.toUtf8());
+			file.close();
+		}
+		else
+		{
+			qDebug() << "文件打开失败：" << file.errorString();
+		}
+	}
+}
+
+void ShowLine::importByFilePath(QString dir)
+{
+	QDir funcDir(dir);
+	QStringList funcFileList = funcDir.entryList(QDir::Files);
+
+	for (size_t i = 0; i < funcFileList.size(); i++)
+	{
+		
+		if (funcFileList.at(i).indexOf(".txt")>=0)
+		{
+			QFile file(dir+"/"+funcFileList.at(i));
+			if (file.open(QIODevice::ReadOnly | QIODevice::Text)) {  // 文本模式读取
+																	 // 操作文件
+				QByteArray data = file.readAll();
+				QString strFileC = QString::fromUtf8(data);
+				QFileInfo fileInfo(funcFileList.at(i));
+				QString fileNameA = fileInfo.fileName().replace(".ini", "").replace(".txt", "");
+				QStringList lines = strFileC.split(QString::fromLocal8Bit("\n"));
+				QString line = lines.at(0);
+				int nlineCount = line.split(QString::fromLocal8Bit("\t")).size() / 2;
+				if (lines.size()>0)
+				{
+					std::vector<double> xVec;
+					std::vector<double> yVec;
+
+
+					for (size_t i = 0; i < nlineCount; i++)
+					{
+						for each (QString strLine in lines)
+						{
+							QStringList strLineArray = strLine.split(QString::fromLocal8Bit("\t"));
+							if (strLineArray.size() >= 2)
+							{
+								if (strLineArray.at(i * 2 + 0) != " " || strLineArray.at(i * 2 + 0) != "")
+								{
+									xVec.push_back(strLineArray.at(i * 2 + 0).toDouble());
+									yVec.push_back(strLineArray.at(i * 2 + 1).toDouble());
+								}
+							}
+						}
+						emit addSeriesSignals(fileNameA, xVec.data(), yVec.data(), xVec.size());
+						xVec.clear();
+						yVec.clear();
+					}
+
+				}
+
+			}
+			else
+			{
+				qDebug() << "文件打开失败：" << file.errorString();
+			}
+		}
+	}
+	
+}
+
 void ShowLine::initData()
 {
 }
@@ -132,6 +223,8 @@ void ShowLine::initClick()
 	});
 	connect(this, &ShowLine::addSeriesSignals, this, &ShowLine::addSeriesVec);
 	connect(this, &ShowLine::saveSelectData, this, &ShowLine::saveSelectDataByFileName);
+	connect(this, &ShowLine::exportByFilePathSingle, this, &ShowLine::exportByFilePath);
+	connect(this, &ShowLine::importByFilePathSingle,this,&ShowLine::importByFilePath);
 }
 
 void ShowLine::addSeries(QString lineName, std::vector<double> xList, std::vector<double> yList)
@@ -188,7 +281,9 @@ void ShowLine::addSeries(QString lineName, std::vector<double> xList, std::vecto
 			xjsonArray.append(xList.at(i));
 			yjsonArray.append(yList.at(i));
 		}
-
+		lineData[u8"data_x"] = xjsonArray;
+		lineData[u8"data_y"] = yjsonArray;
+		lineObjList[nIndex] = lineData;
 	}
 	
 }
@@ -207,9 +302,8 @@ void ShowLine::addSeriesVec(QString lineName, double * xArray, double * yArray, 
 void ShowLine::removeSeries(QString lineName) 
 {
 	int nIndex = lineNames.indexOf(lineName);
-	lineNames.removeAt(nIndex);
 	removeSeries(nIndex);
-	lineObjList.removeAt(nIndex);
+	
 }
 void ShowLine::removeSeries(int nIndex) 
 {
@@ -224,6 +318,8 @@ void ShowLine::removeSeries(int nIndex)
 		// 再删除item
 		delete ui.listWidget->takeItem(ui.listWidget->row(item));
 	}
+	lineNames.removeAt(nIndex);
+	lineObjList.removeAt(nIndex);
 
 	QCustomPlot* customPloat = qobject_cast<QCustomPlot*>(ui.widget);
 	customPloat->removeGraph(nIndex);
@@ -260,6 +356,14 @@ void ShowLine::updateYRange(int nReduce, double range)
 	double yMaxRange = nRange.upper + range*nReduce / 2 * (nRange.lower - nRange.upper);
 	customPloat->yAxis->setRange(yMinRange, yMaxRange);
 	customPloat->replot();
+}
+
+void ShowLine::renameByLine(int nIndex, QString lineName)
+{
+	lineNames[nIndex] = lineName;
+	ui.listWidget->item(nIndex)->setText(lineName);
+	ui.widget->graph(nIndex)->setName(lineName);
+	ui.widget->replot();
 }
 
 QString ShowLine::getSeriesName()

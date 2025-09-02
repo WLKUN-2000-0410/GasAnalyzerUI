@@ -20,16 +20,6 @@ UiDemo::UiDemo(QWidget *parent)
 	initClick();
 }
 
-void UiDemo::keyPressEvent(QKeyEvent * event)
-{
-
-	int key = event->key();
-	if (event->modifiers()==Qt::ControlModifier&&event->key()==Qt::Key_Escape)
-	{
-		qDebug() << "ESC";
-	}
-}
-
 void UiDemo::closeEvent(QCloseEvent * event)
 {
 	int i = CustomMessageBox::showCustomm(3, QString::fromLocal8Bit("确认要退出吗?")

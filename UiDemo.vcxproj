@@ -14,7 +14,7 @@
     <ProjectGuid>{C34383AA-6EB0-4A0F-93BC-24CE7130BE0C}</ProjectGuid>
     <Keyword>QtVS_v304</Keyword>
     <QtMsBuild Condition="'$(QtMsBuild)'=='' OR !Exists('$(QtMsBuild)\qt.targets')">$(MSBuildProjectDirectory)\QtMsBuild</QtMsBuild>
-    <WindowsTargetPlatformVersion>10.0.20348.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|Win32'" Label="Configuration">
@@ -25,19 +25,19 @@
     <ConfigurationType>Application</ConfigurationType>
     <PlatformToolset>v140</PlatformToolset>
     <UseOfMfc>false</UseOfMfc>
-    <CharacterSet>Unicode</CharacterSet>
+    <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt_defaults.props')">
     <Import Project="$(QtMsBuild)\qt_defaults.props" />
   </ImportGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|Win32'" Label="QtSettings">
-    <QtInstall>Qt_5.9_msvc2015_32</QtInstall>
+    <QtInstall>5.9_msvc2015</QtInstall>
     <QtModules>core;gui;widgets</QtModules>
     <QtBuildConfig>debug</QtBuildConfig>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|Win32'" Label="QtSettings">
-    <QtInstall>Qt_5.9_msvc2015_32</QtInstall>
+    <QtInstall>5.9_msvc2015</QtInstall>
     <QtModules>core;gui;widgets</QtModules>
     <QtBuildConfig>release</QtBuildConfig>
   </PropertyGroup>
@@ -59,6 +59,24 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|Win32'">
   </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>.\BackEndCode\Include-MatLab\include;.\BackEndCode\Include-cal-fit\h;.\BackEndCode;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <AdditionalLibraryDirectories>.\BackEndCode\Include-cal-fit\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>cal_fit.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>.\BackEndCode\Include-MatLab\include;.\BackEndCode\Include-cal-fit\h;.\BackEndCode;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <AdditionalLibraryDirectories>.\BackEndCode\Include-cal-fit\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>cal_fit.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|Win32'" Label="Configuration">
     <ClCompile>
       <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
@@ -87,18 +105,73 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <QtRcc Include="UiDemo.qrc" />
+    <QtUic Include="correctiondatadlg.ui" />
     <QtUic Include="custommessagebox.ui" />
+    <QtUic Include="listitemwidget.ui" />
     <QtUic Include="managedevice.ui" />
     <QtUic Include="modeling.ui" />
+    <QtUic Include="renamebylinedlg.ui" />
     <QtUic Include="scantestdlg.ui" />
     <QtUic Include="showline.ui" />
     <QtUic Include="smoothdialog.ui" />
     <QtUic Include="UiDemo.ui" />
     <QtMoc Include="UiDemo.h" />
+    <ClCompile Include="BackEndCode\ConcentrationModel.cpp" />
+    <ClCompile Include="BackEndCode\CurveDataManager.cpp" />
+    <ClCompile Include="BackEndCode\DataProcessor.cpp" />
+    <ClCompile Include="BackEndCode\Include-MatLab\include\beads.cpp" />
+    <ClCompile Include="BackEndCode\Include-MatLab\include\blockedSummation.cpp" />
+    <ClCompile Include="BackEndCode\Include-MatLab\include\cal_baseline_chongda_data.cpp" />
+    <ClCompile Include="BackEndCode\Include-MatLab\include\cal_baseline_chongda_initialize.cpp" />
+    <ClCompile Include="BackEndCode\Include-MatLab\include\cal_baseline_chongda_rtwutil.cpp" />
+    <ClCompile Include="BackEndCode\Include-MatLab\include\cal_baseline_chongda_terminate.cpp" />
+    <ClCompile Include="BackEndCode\Include-MatLab\include\colon.cpp" />
+    <ClCompile Include="BackEndCode\Include-MatLab\include\cs_ci_bundle.cpp" />
+    <ClCompile Include="BackEndCode\Include-MatLab\include\cs_ri_bundle.cpp" />
+    <ClCompile Include="BackEndCode\Include-MatLab\include\CXSparseAPI.cpp" />
+    <ClCompile Include="BackEndCode\Include-MatLab\include\diff.cpp" />
+    <ClCompile Include="BackEndCode\Include-MatLab\include\eml_rand_mt19937ar.cpp" />
+    <ClCompile Include="BackEndCode\Include-MatLab\include\eml_rand_mt19937ar_stateful.cpp" />
+    <ClCompile Include="BackEndCode\Include-MatLab\include\find.cpp" />
+    <ClCompile Include="BackEndCode\Include-MatLab\include\fminsearch.cpp" />
+    <ClCompile Include="BackEndCode\Include-MatLab\include\heapsort.cpp" />
+    <ClCompile Include="BackEndCode\Include-MatLab\include\insertionsort.cpp" />
+    <ClCompile Include="BackEndCode\Include-MatLab\include\introsort.cpp" />
+    <ClCompile Include="BackEndCode\Include-MatLab\include\linspace.cpp" />
+    <ClCompile Include="BackEndCode\Include-MatLab\include\makeCXSparseMatrix.cpp" />
+    <ClCompile Include="BackEndCode\Include-MatLab\include\minOrMax.cpp" />
+    <ClCompile Include="BackEndCode\Include-MatLab\include\mldivide.cpp" />
+    <ClCompile Include="BackEndCode\Include-MatLab\include\Opt_fc.cpp" />
+    <ClCompile Include="BackEndCode\Include-MatLab\include\peakfit1.cpp" />
+    <ClCompile Include="BackEndCode\Include-MatLab\include\peakfit2.cpp" />
+    <ClCompile Include="BackEndCode\Include-MatLab\include\polyfit.cpp" />
+    <ClCompile Include="BackEndCode\Include-MatLab\include\qrsolve.cpp" />
+    <ClCompile Include="BackEndCode\Include-MatLab\include\rand.cpp" />
+    <ClCompile Include="BackEndCode\Include-MatLab\include\randn.cpp" />
+    <ClCompile Include="BackEndCode\Include-MatLab\include\rtGetInf.cpp" />
+    <ClCompile Include="BackEndCode\Include-MatLab\include\rtGetNaN.cpp" />
+    <ClCompile Include="BackEndCode\Include-MatLab\include\rt_nonfinite.cpp" />
+    <ClCompile Include="BackEndCode\Include-MatLab\include\solve_from_lu.cpp" />
+    <ClCompile Include="BackEndCode\Include-MatLab\include\solve_from_qr.cpp" />
+    <ClCompile Include="BackEndCode\Include-MatLab\include\sortIdx.cpp" />
+    <ClCompile Include="BackEndCode\Include-MatLab\include\sparse.cpp" />
+    <ClCompile Include="BackEndCode\Include-MatLab\include\sparse1.cpp" />
+    <ClCompile Include="BackEndCode\Include-MatLab\include\spdiags.cpp" />
+    <ClCompile Include="BackEndCode\Include-MatLab\include\SuiteSparse_config.c" />
+    <ClCompile Include="BackEndCode\Include-MatLab\include\unpackCXStruct.cpp" />
+    <ClCompile Include="BackEndCode\Include-MatLab\include\xnrm2.cpp" />
+    <ClCompile Include="BackEndCode\ModelArchiveManager.cpp" />
+    <ClCompile Include="BackEndCode\ModelFitter.cpp" />
+    <ClCompile Include="BackEndCode\ModelManager.cpp" />
+    <ClCompile Include="BackEndCode\PartialPressureModel.cpp" />
+    <ClCompile Include="correctiondatadlg.cpp" />
     <ClCompile Include="custommessagebox.cpp" />
+    <ClCompile Include="GlobalShare.cpp" />
+    <ClCompile Include="listitemwidget.cpp" />
     <ClCompile Include="managedevice.cpp" />
     <ClCompile Include="modeling.cpp" />
     <ClCompile Include="qcustomplot.cpp" />
+    <ClCompile Include="renamebylinedlg.cpp" />
     <ClCompile Include="scantestdlg.cpp" />
     <ClCompile Include="showline.cpp" />
     <ClCompile Include="SingletonShared.cpp" />
@@ -110,6 +183,68 @@
     <QtMoc Include="smoothdialog.h" />
     <QtMoc Include="custommessagebox.h" />
     <QtMoc Include="scantestdlg.h" />
+    <QtMoc Include="renamebylinedlg.h" />
+    <QtMoc Include="correctiondatadlg.h" />
+    <QtMoc Include="listitemwidget.h" />
+    <ClInclude Include="BackEndCode\ConcentrationModel.h" />
+    <ClInclude Include="BackEndCode\CurveDataManager.h" />
+    <ClInclude Include="BackEndCode\DataProcessor.h" />
+    <ClInclude Include="BackEndCode\IGasModel.h" />
+    <ClInclude Include="BackEndCode\Include-MatLab\include\anonymous_function.h" />
+    <ClInclude Include="BackEndCode\Include-MatLab\include\beads.h" />
+    <ClInclude Include="BackEndCode\Include-MatLab\include\blockedSummation.h" />
+    <ClInclude Include="BackEndCode\Include-MatLab\include\cal_baseline_chongda_data.h" />
+    <ClInclude Include="BackEndCode\Include-MatLab\include\cal_baseline_chongda_initialize.h" />
+    <ClInclude Include="BackEndCode\Include-MatLab\include\cal_baseline_chongda_internal_types.h" />
+    <ClInclude Include="BackEndCode\Include-MatLab\include\cal_baseline_chongda_rtwutil.h" />
+    <ClInclude Include="BackEndCode\Include-MatLab\include\cal_baseline_chongda_terminate.h" />
+    <ClInclude Include="BackEndCode\Include-MatLab\include\cal_baseline_chongda_types.h" />
+    <ClInclude Include="BackEndCode\Include-MatLab\include\coder_array.h" />
+    <ClInclude Include="BackEndCode\Include-MatLab\include\coder_bounded_array.h" />
+    <ClInclude Include="BackEndCode\Include-MatLab\include\coder_cs.h" />
+    <ClInclude Include="BackEndCode\Include-MatLab\include\colon.h" />
+    <ClInclude Include="BackEndCode\Include-MatLab\include\cs.h" />
+    <ClInclude Include="BackEndCode\Include-MatLab\include\CXSparseAPI.h" />
+    <ClInclude Include="BackEndCode\Include-MatLab\include\diff.h" />
+    <ClInclude Include="BackEndCode\Include-MatLab\include\eml_rand_mt19937ar.h" />
+    <ClInclude Include="BackEndCode\Include-MatLab\include\eml_rand_mt19937ar_stateful.h" />
+    <ClInclude Include="BackEndCode\Include-MatLab\include\find.h" />
+    <ClInclude Include="BackEndCode\Include-MatLab\include\fminsearch.h" />
+    <ClInclude Include="BackEndCode\Include-MatLab\include\heapsort.h" />
+    <ClInclude Include="BackEndCode\Include-MatLab\include\insertionsort.h" />
+    <ClInclude Include="BackEndCode\Include-MatLab\include\introsort.h" />
+    <ClInclude Include="BackEndCode\Include-MatLab\include\linspace.h" />
+    <ClInclude Include="BackEndCode\Include-MatLab\include\main.h" />
+    <ClInclude Include="BackEndCode\Include-MatLab\include\makeCXSparseMatrix.h" />
+    <ClInclude Include="BackEndCode\Include-MatLab\include\minOrMax.h" />
+    <ClInclude Include="BackEndCode\Include-MatLab\include\mldivide.h" />
+    <ClInclude Include="BackEndCode\Include-MatLab\include\Opt_fc.h" />
+    <ClInclude Include="BackEndCode\Include-MatLab\include\peakfit1.h" />
+    <ClInclude Include="BackEndCode\Include-MatLab\include\peakfit2.h" />
+    <ClInclude Include="BackEndCode\Include-MatLab\include\polyfit.h" />
+    <ClInclude Include="BackEndCode\Include-MatLab\include\qrsolve.h" />
+    <ClInclude Include="BackEndCode\Include-MatLab\include\rand.h" />
+    <ClInclude Include="BackEndCode\Include-MatLab\include\randn.h" />
+    <ClInclude Include="BackEndCode\Include-MatLab\include\rtGetInf.h" />
+    <ClInclude Include="BackEndCode\Include-MatLab\include\rtGetNaN.h" />
+    <ClInclude Include="BackEndCode\Include-MatLab\include\rtwtypes.h" />
+    <ClInclude Include="BackEndCode\Include-MatLab\include\rt_nonfinite.h" />
+    <ClInclude Include="BackEndCode\Include-MatLab\include\solve_from_lu.h" />
+    <ClInclude Include="BackEndCode\Include-MatLab\include\solve_from_qr.h" />
+    <ClInclude Include="BackEndCode\Include-MatLab\include\sortIdx.h" />
+    <ClInclude Include="BackEndCode\Include-MatLab\include\sparse.h" />
+    <ClInclude Include="BackEndCode\Include-MatLab\include\sparse1.h" />
+    <ClInclude Include="BackEndCode\Include-MatLab\include\spdiags.h" />
+    <ClInclude Include="BackEndCode\Include-MatLab\include\stack1.h" />
+    <ClInclude Include="BackEndCode\Include-MatLab\include\SuiteSparse_config.h" />
+    <ClInclude Include="BackEndCode\Include-MatLab\include\tmwtypes.h" />
+    <ClInclude Include="BackEndCode\Include-MatLab\include\unpackCXStruct.h" />
+    <ClInclude Include="BackEndCode\Include-MatLab\include\xnrm2.h" />
+    <ClInclude Include="BackEndCode\ModelArchiveManager.h" />
+    <ClInclude Include="BackEndCode\ModelFitter.h" />
+    <ClInclude Include="BackEndCode\ModelManager.h" />
+    <ClInclude Include="BackEndCode\PartialPressureModel.h" />
+    <ClInclude Include="BackEndCode\PathUtils.h" />
     <ClInclude Include="SingletonShared.h" />
     <QtMoc Include="showline.h" />
     <QtMoc Include="managedevice.h" />
@@ -120,6 +255,15 @@
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="UiDemo.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="BackEndCode\Include-MatLab\include\buildInfo.mat" />
+    <None Include="BackEndCode\Include-MatLab\include\codedescriptor.dmr" />
+    <None Include="BackEndCode\Include-MatLab\include\codeInfo.mat" />
+    <None Include="BackEndCode\Include-MatLab\include\compileInfo.mat" />
+    <None Include="BackEndCode\Include-MatLab\include\gcGuiReport.mat" />
+    <None Include="BackEndCode\Include-MatLab\include\rtw_proj.tmw" />
+    <None Include="BackEndCode\Include-MatLab\include\setup_msvc.bat" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">

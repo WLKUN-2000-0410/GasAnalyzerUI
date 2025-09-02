@@ -21,6 +21,12 @@
       <UniqueIdentifier>{639EADAA-A684-42e4-A9AD-28FC9BCB8F7C}</UniqueIdentifier>
       <Extensions>ts</Extensions>
     </Filter>
+    <Filter Include="BackEndCode">
+      <UniqueIdentifier>{1419c162-d03b-4463-896d-b24dbcba153b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="BackEndCode\matlab">
+      <UniqueIdentifier>{7eaba35f-1926-4001-8e02-8db8db1343b3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <QtRcc Include="UiDemo.qrc">
@@ -64,6 +70,162 @@
     <ClCompile Include="scantestdlg.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="renamebylinedlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="correctiondatadlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="listitemwidget.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="BackEndCode\ConcentrationModel.cpp">
+      <Filter>BackEndCode</Filter>
+    </ClCompile>
+    <ClCompile Include="BackEndCode\CurveDataManager.cpp">
+      <Filter>BackEndCode</Filter>
+    </ClCompile>
+    <ClCompile Include="BackEndCode\DataProcessor.cpp">
+      <Filter>BackEndCode</Filter>
+    </ClCompile>
+    <ClCompile Include="BackEndCode\ModelArchiveManager.cpp">
+      <Filter>BackEndCode</Filter>
+    </ClCompile>
+    <ClCompile Include="BackEndCode\ModelFitter.cpp">
+      <Filter>BackEndCode</Filter>
+    </ClCompile>
+    <ClCompile Include="BackEndCode\ModelManager.cpp">
+      <Filter>BackEndCode</Filter>
+    </ClCompile>
+    <ClCompile Include="BackEndCode\PartialPressureModel.cpp">
+      <Filter>BackEndCode</Filter>
+    </ClCompile>
+    <ClCompile Include="BackEndCode\Include-MatLab\include\beads.cpp">
+      <Filter>BackEndCode\matlab</Filter>
+    </ClCompile>
+    <ClCompile Include="BackEndCode\Include-MatLab\include\blockedSummation.cpp">
+      <Filter>BackEndCode\matlab</Filter>
+    </ClCompile>
+    <ClCompile Include="BackEndCode\Include-MatLab\include\cal_baseline_chongda_data.cpp">
+      <Filter>BackEndCode\matlab</Filter>
+    </ClCompile>
+    <ClCompile Include="BackEndCode\Include-MatLab\include\cal_baseline_chongda_initialize.cpp">
+      <Filter>BackEndCode\matlab</Filter>
+    </ClCompile>
+    <ClCompile Include="BackEndCode\Include-MatLab\include\cal_baseline_chongda_rtwutil.cpp">
+      <Filter>BackEndCode\matlab</Filter>
+    </ClCompile>
+    <ClCompile Include="BackEndCode\Include-MatLab\include\cal_baseline_chongda_terminate.cpp">
+      <Filter>BackEndCode\matlab</Filter>
+    </ClCompile>
+    <ClCompile Include="BackEndCode\Include-MatLab\include\colon.cpp">
+      <Filter>BackEndCode\matlab</Filter>
+    </ClCompile>
+    <ClCompile Include="BackEndCode\Include-MatLab\include\cs_ci_bundle.cpp">
+      <Filter>BackEndCode\matlab</Filter>
+    </ClCompile>
+    <ClCompile Include="BackEndCode\Include-MatLab\include\cs_ri_bundle.cpp">
+      <Filter>BackEndCode\matlab</Filter>
+    </ClCompile>
+    <ClCompile Include="BackEndCode\Include-MatLab\include\CXSparseAPI.cpp">
+      <Filter>BackEndCode\matlab</Filter>
+    </ClCompile>
+    <ClCompile Include="BackEndCode\Include-MatLab\include\diff.cpp">
+      <Filter>BackEndCode\matlab</Filter>
+    </ClCompile>
+    <ClCompile Include="BackEndCode\Include-MatLab\include\eml_rand_mt19937ar.cpp">
+      <Filter>BackEndCode\matlab</Filter>
+    </ClCompile>
+    <ClCompile Include="BackEndCode\Include-MatLab\include\eml_rand_mt19937ar_stateful.cpp">
+      <Filter>BackEndCode\matlab</Filter>
+    </ClCompile>
+    <ClCompile Include="BackEndCode\Include-MatLab\include\find.cpp">
+      <Filter>BackEndCode\matlab</Filter>
+    </ClCompile>
+    <ClCompile Include="BackEndCode\Include-MatLab\include\fminsearch.cpp">
+      <Filter>BackEndCode\matlab</Filter>
+    </ClCompile>
+    <ClCompile Include="BackEndCode\Include-MatLab\include\heapsort.cpp">
+      <Filter>BackEndCode\matlab</Filter>
+    </ClCompile>
+    <ClCompile Include="BackEndCode\Include-MatLab\include\insertionsort.cpp">
+      <Filter>BackEndCode\matlab</Filter>
+    </ClCompile>
+    <ClCompile Include="BackEndCode\Include-MatLab\include\introsort.cpp">
+      <Filter>BackEndCode\matlab</Filter>
+    </ClCompile>
+    <ClCompile Include="BackEndCode\Include-MatLab\include\linspace.cpp">
+      <Filter>BackEndCode\matlab</Filter>
+    </ClCompile>
+    <ClCompile Include="BackEndCode\Include-MatLab\include\makeCXSparseMatrix.cpp">
+      <Filter>BackEndCode\matlab</Filter>
+    </ClCompile>
+    <ClCompile Include="BackEndCode\Include-MatLab\include\minOrMax.cpp">
+      <Filter>BackEndCode\matlab</Filter>
+    </ClCompile>
+    <ClCompile Include="BackEndCode\Include-MatLab\include\mldivide.cpp">
+      <Filter>BackEndCode\matlab</Filter>
+    </ClCompile>
+    <ClCompile Include="BackEndCode\Include-MatLab\include\Opt_fc.cpp">
+      <Filter>BackEndCode\matlab</Filter>
+    </ClCompile>
+    <ClCompile Include="BackEndCode\Include-MatLab\include\peakfit1.cpp">
+      <Filter>BackEndCode\matlab</Filter>
+    </ClCompile>
+    <ClCompile Include="BackEndCode\Include-MatLab\include\peakfit2.cpp">
+      <Filter>BackEndCode\matlab</Filter>
+    </ClCompile>
+    <ClCompile Include="BackEndCode\Include-MatLab\include\polyfit.cpp">
+      <Filter>BackEndCode\matlab</Filter>
+    </ClCompile>
+    <ClCompile Include="BackEndCode\Include-MatLab\include\qrsolve.cpp">
+      <Filter>BackEndCode\matlab</Filter>
+    </ClCompile>
+    <ClCompile Include="BackEndCode\Include-MatLab\include\rand.cpp">
+      <Filter>BackEndCode\matlab</Filter>
+    </ClCompile>
+    <ClCompile Include="BackEndCode\Include-MatLab\include\randn.cpp">
+      <Filter>BackEndCode\matlab</Filter>
+    </ClCompile>
+    <ClCompile Include="BackEndCode\Include-MatLab\include\rt_nonfinite.cpp">
+      <Filter>BackEndCode\matlab</Filter>
+    </ClCompile>
+    <ClCompile Include="BackEndCode\Include-MatLab\include\rtGetInf.cpp">
+      <Filter>BackEndCode\matlab</Filter>
+    </ClCompile>
+    <ClCompile Include="BackEndCode\Include-MatLab\include\rtGetNaN.cpp">
+      <Filter>BackEndCode\matlab</Filter>
+    </ClCompile>
+    <ClCompile Include="BackEndCode\Include-MatLab\include\solve_from_lu.cpp">
+      <Filter>BackEndCode\matlab</Filter>
+    </ClCompile>
+    <ClCompile Include="BackEndCode\Include-MatLab\include\solve_from_qr.cpp">
+      <Filter>BackEndCode\matlab</Filter>
+    </ClCompile>
+    <ClCompile Include="BackEndCode\Include-MatLab\include\sortIdx.cpp">
+      <Filter>BackEndCode\matlab</Filter>
+    </ClCompile>
+    <ClCompile Include="BackEndCode\Include-MatLab\include\sparse.cpp">
+      <Filter>BackEndCode\matlab</Filter>
+    </ClCompile>
+    <ClCompile Include="BackEndCode\Include-MatLab\include\sparse1.cpp">
+      <Filter>BackEndCode\matlab</Filter>
+    </ClCompile>
+    <ClCompile Include="BackEndCode\Include-MatLab\include\spdiags.cpp">
+      <Filter>BackEndCode\matlab</Filter>
+    </ClCompile>
+    <ClCompile Include="BackEndCode\Include-MatLab\include\SuiteSparse_config.c">
+      <Filter>BackEndCode\matlab</Filter>
+    </ClCompile>
+    <ClCompile Include="BackEndCode\Include-MatLab\include\unpackCXStruct.cpp">
+      <Filter>BackEndCode\matlab</Filter>
+    </ClCompile>
+    <ClCompile Include="BackEndCode\Include-MatLab\include\xnrm2.cpp">
+      <Filter>BackEndCode\matlab</Filter>
+    </ClCompile>
+    <ClCompile Include="GlobalShare.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="resource.h">
@@ -74,6 +236,183 @@
     </ClInclude>
     <ClInclude Include="SingletonShared.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="BackEndCode\ConcentrationModel.h">
+      <Filter>BackEndCode</Filter>
+    </ClInclude>
+    <ClInclude Include="BackEndCode\CurveDataManager.h">
+      <Filter>BackEndCode</Filter>
+    </ClInclude>
+    <ClInclude Include="BackEndCode\DataProcessor.h">
+      <Filter>BackEndCode</Filter>
+    </ClInclude>
+    <ClInclude Include="BackEndCode\IGasModel.h">
+      <Filter>BackEndCode</Filter>
+    </ClInclude>
+    <ClInclude Include="BackEndCode\ModelArchiveManager.h">
+      <Filter>BackEndCode</Filter>
+    </ClInclude>
+    <ClInclude Include="BackEndCode\ModelFitter.h">
+      <Filter>BackEndCode</Filter>
+    </ClInclude>
+    <ClInclude Include="BackEndCode\ModelManager.h">
+      <Filter>BackEndCode</Filter>
+    </ClInclude>
+    <ClInclude Include="BackEndCode\PartialPressureModel.h">
+      <Filter>BackEndCode</Filter>
+    </ClInclude>
+    <ClInclude Include="BackEndCode\PathUtils.h">
+      <Filter>BackEndCode</Filter>
+    </ClInclude>
+    <ClInclude Include="BackEndCode\Include-MatLab\include\anonymous_function.h">
+      <Filter>BackEndCode\matlab</Filter>
+    </ClInclude>
+    <ClInclude Include="BackEndCode\Include-MatLab\include\beads.h">
+      <Filter>BackEndCode\matlab</Filter>
+    </ClInclude>
+    <ClInclude Include="BackEndCode\Include-MatLab\include\blockedSummation.h">
+      <Filter>BackEndCode\matlab</Filter>
+    </ClInclude>
+    <ClInclude Include="BackEndCode\Include-MatLab\include\cal_baseline_chongda_data.h">
+      <Filter>BackEndCode\matlab</Filter>
+    </ClInclude>
+    <ClInclude Include="BackEndCode\Include-MatLab\include\cal_baseline_chongda_initialize.h">
+      <Filter>BackEndCode\matlab</Filter>
+    </ClInclude>
+    <ClInclude Include="BackEndCode\Include-MatLab\include\cal_baseline_chongda_internal_types.h">
+      <Filter>BackEndCode\matlab</Filter>
+    </ClInclude>
+    <ClInclude Include="BackEndCode\Include-MatLab\include\cal_baseline_chongda_rtwutil.h">
+      <Filter>BackEndCode\matlab</Filter>
+    </ClInclude>
+    <ClInclude Include="BackEndCode\Include-MatLab\include\cal_baseline_chongda_terminate.h">
+      <Filter>BackEndCode\matlab</Filter>
+    </ClInclude>
+    <ClInclude Include="BackEndCode\Include-MatLab\include\cal_baseline_chongda_types.h">
+      <Filter>BackEndCode\matlab</Filter>
+    </ClInclude>
+    <ClInclude Include="BackEndCode\Include-MatLab\include\coder_array.h">
+      <Filter>BackEndCode\matlab</Filter>
+    </ClInclude>
+    <ClInclude Include="BackEndCode\Include-MatLab\include\coder_bounded_array.h">
+      <Filter>BackEndCode\matlab</Filter>
+    </ClInclude>
+    <ClInclude Include="BackEndCode\Include-MatLab\include\coder_cs.h">
+      <Filter>BackEndCode\matlab</Filter>
+    </ClInclude>
+    <ClInclude Include="BackEndCode\Include-MatLab\include\colon.h">
+      <Filter>BackEndCode\matlab</Filter>
+    </ClInclude>
+    <ClInclude Include="BackEndCode\Include-MatLab\include\cs.h">
+      <Filter>BackEndCode\matlab</Filter>
+    </ClInclude>
+    <ClInclude Include="BackEndCode\Include-MatLab\include\CXSparseAPI.h">
+      <Filter>BackEndCode\matlab</Filter>
+    </ClInclude>
+    <ClInclude Include="BackEndCode\Include-MatLab\include\diff.h">
+      <Filter>BackEndCode\matlab</Filter>
+    </ClInclude>
+    <ClInclude Include="BackEndCode\Include-MatLab\include\eml_rand_mt19937ar.h">
+      <Filter>BackEndCode\matlab</Filter>
+    </ClInclude>
+    <ClInclude Include="BackEndCode\Include-MatLab\include\eml_rand_mt19937ar_stateful.h">
+      <Filter>BackEndCode\matlab</Filter>
+    </ClInclude>
+    <ClInclude Include="BackEndCode\Include-MatLab\include\find.h">
+      <Filter>BackEndCode\matlab</Filter>
+    </ClInclude>
+    <ClInclude Include="BackEndCode\Include-MatLab\include\fminsearch.h">
+      <Filter>BackEndCode\matlab</Filter>
+    </ClInclude>
+    <ClInclude Include="BackEndCode\Include-MatLab\include\heapsort.h">
+      <Filter>BackEndCode\matlab</Filter>
+    </ClInclude>
+    <ClInclude Include="BackEndCode\Include-MatLab\include\insertionsort.h">
+      <Filter>BackEndCode\matlab</Filter>
+    </ClInclude>
+    <ClInclude Include="BackEndCode\Include-MatLab\include\introsort.h">
+      <Filter>BackEndCode\matlab</Filter>
+    </ClInclude>
+    <ClInclude Include="BackEndCode\Include-MatLab\include\linspace.h">
+      <Filter>BackEndCode\matlab</Filter>
+    </ClInclude>
+    <ClInclude Include="BackEndCode\Include-MatLab\include\main.h">
+      <Filter>BackEndCode\matlab</Filter>
+    </ClInclude>
+    <ClInclude Include="BackEndCode\Include-MatLab\include\makeCXSparseMatrix.h">
+      <Filter>BackEndCode\matlab</Filter>
+    </ClInclude>
+    <ClInclude Include="BackEndCode\Include-MatLab\include\minOrMax.h">
+      <Filter>BackEndCode\matlab</Filter>
+    </ClInclude>
+    <ClInclude Include="BackEndCode\Include-MatLab\include\mldivide.h">
+      <Filter>BackEndCode\matlab</Filter>
+    </ClInclude>
+    <ClInclude Include="BackEndCode\Include-MatLab\include\Opt_fc.h">
+      <Filter>BackEndCode\matlab</Filter>
+    </ClInclude>
+    <ClInclude Include="BackEndCode\Include-MatLab\include\peakfit1.h">
+      <Filter>BackEndCode\matlab</Filter>
+    </ClInclude>
+    <ClInclude Include="BackEndCode\Include-MatLab\include\peakfit2.h">
+      <Filter>BackEndCode\matlab</Filter>
+    </ClInclude>
+    <ClInclude Include="BackEndCode\Include-MatLab\include\polyfit.h">
+      <Filter>BackEndCode\matlab</Filter>
+    </ClInclude>
+    <ClInclude Include="BackEndCode\Include-MatLab\include\qrsolve.h">
+      <Filter>BackEndCode\matlab</Filter>
+    </ClInclude>
+    <ClInclude Include="BackEndCode\Include-MatLab\include\rand.h">
+      <Filter>BackEndCode\matlab</Filter>
+    </ClInclude>
+    <ClInclude Include="BackEndCode\Include-MatLab\include\randn.h">
+      <Filter>BackEndCode\matlab</Filter>
+    </ClInclude>
+    <ClInclude Include="BackEndCode\Include-MatLab\include\rt_nonfinite.h">
+      <Filter>BackEndCode\matlab</Filter>
+    </ClInclude>
+    <ClInclude Include="BackEndCode\Include-MatLab\include\rtGetInf.h">
+      <Filter>BackEndCode\matlab</Filter>
+    </ClInclude>
+    <ClInclude Include="BackEndCode\Include-MatLab\include\rtGetNaN.h">
+      <Filter>BackEndCode\matlab</Filter>
+    </ClInclude>
+    <ClInclude Include="BackEndCode\Include-MatLab\include\rtwtypes.h">
+      <Filter>BackEndCode\matlab</Filter>
+    </ClInclude>
+    <ClInclude Include="BackEndCode\Include-MatLab\include\solve_from_lu.h">
+      <Filter>BackEndCode\matlab</Filter>
+    </ClInclude>
+    <ClInclude Include="BackEndCode\Include-MatLab\include\solve_from_qr.h">
+      <Filter>BackEndCode\matlab</Filter>
+    </ClInclude>
+    <ClInclude Include="BackEndCode\Include-MatLab\include\sortIdx.h">
+      <Filter>BackEndCode\matlab</Filter>
+    </ClInclude>
+    <ClInclude Include="BackEndCode\Include-MatLab\include\sparse.h">
+      <Filter>BackEndCode\matlab</Filter>
+    </ClInclude>
+    <ClInclude Include="BackEndCode\Include-MatLab\include\sparse1.h">
+      <Filter>BackEndCode\matlab</Filter>
+    </ClInclude>
+    <ClInclude Include="BackEndCode\Include-MatLab\include\spdiags.h">
+      <Filter>BackEndCode\matlab</Filter>
+    </ClInclude>
+    <ClInclude Include="BackEndCode\Include-MatLab\include\stack1.h">
+      <Filter>BackEndCode\matlab</Filter>
+    </ClInclude>
+    <ClInclude Include="BackEndCode\Include-MatLab\include\SuiteSparse_config.h">
+      <Filter>BackEndCode\matlab</Filter>
+    </ClInclude>
+    <ClInclude Include="BackEndCode\Include-MatLab\include\tmwtypes.h">
+      <Filter>BackEndCode\matlab</Filter>
+    </ClInclude>
+    <ClInclude Include="BackEndCode\Include-MatLab\include\unpackCXStruct.h">
+      <Filter>BackEndCode\matlab</Filter>
+    </ClInclude>
+    <ClInclude Include="BackEndCode\Include-MatLab\include\xnrm2.h">
+      <Filter>BackEndCode\matlab</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -103,6 +442,15 @@
     <QtMoc Include="scantestdlg.h">
       <Filter>Header Files</Filter>
     </QtMoc>
+    <QtMoc Include="renamebylinedlg.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="correctiondatadlg.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="listitemwidget.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
   </ItemGroup>
   <ItemGroup>
     <QtUic Include="managedevice.ui">
@@ -123,5 +471,37 @@
     <QtUic Include="scantestdlg.ui">
       <Filter>Form Files</Filter>
     </QtUic>
+    <QtUic Include="renamebylinedlg.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="correctiondatadlg.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="listitemwidget.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="BackEndCode\Include-MatLab\include\buildInfo.mat">
+      <Filter>BackEndCode\matlab</Filter>
+    </None>
+    <None Include="BackEndCode\Include-MatLab\include\codedescriptor.dmr">
+      <Filter>BackEndCode\matlab</Filter>
+    </None>
+    <None Include="BackEndCode\Include-MatLab\include\codeInfo.mat">
+      <Filter>BackEndCode\matlab</Filter>
+    </None>
+    <None Include="BackEndCode\Include-MatLab\include\compileInfo.mat">
+      <Filter>BackEndCode\matlab</Filter>
+    </None>
+    <None Include="BackEndCode\Include-MatLab\include\gcGuiReport.mat">
+      <Filter>BackEndCode\matlab</Filter>
+    </None>
+    <None Include="BackEndCode\Include-MatLab\include\rtw_proj.tmw">
+      <Filter>BackEndCode\matlab</Filter>
+    </None>
+    <None Include="BackEndCode\Include-MatLab\include\setup_msvc.bat">
+      <Filter>BackEndCode\matlab</Filter>
+    </None>
   </ItemGroup>
 </Project>
